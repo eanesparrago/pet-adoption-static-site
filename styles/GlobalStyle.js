@@ -2,12 +2,16 @@ import { createGlobalStyle } from "styled-components";
 import theme from "./theme";
 
 export default createGlobalStyle`
+  html, body, #__next {
+    height: 100%;
+  }
+
   html {
     font-size: 16px;
   }
   
   body {
-    font-size: 16px;
+    font-size: 19px;
     font-family: ${theme.font.sansSerif}
   }
 `;

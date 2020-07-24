@@ -45,7 +45,7 @@ export default {
     48: "3rem",
     64: "4rem",
     96: "6rem",
-    pixelToRem: (pixel) => `${pixel / 16}rem`,
+    pixel: (pixel) => `${pixel / 16}rem`,
   },
   shadow: [],
 };
