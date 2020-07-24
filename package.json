@@ -1,5 +1,6 @@
 {
-  "name": "paw-adoption",
+  "name": "practice-202007-paw_adoption",
+  "author": "iansanwich",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
