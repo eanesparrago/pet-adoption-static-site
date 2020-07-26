@@ -30,6 +30,7 @@ export default {
     grey: {
       800: "#424242",
       500: "#9E9E9E",
+      100: "#F5F5F5",
     },
     pink: "#E91E63",
     blue: "#2196F3",
@@ -49,5 +50,6 @@ export default {
   },
   shadow: {
     small: "0px 4px 4px rgba(0, 0, 0, 0.2);",
+    big: "0px 8px 8px rgba(0, 0, 0, 0.2);",
   },
 };

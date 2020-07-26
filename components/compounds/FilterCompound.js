@@ -4,11 +4,11 @@ import styled from "styled-components";
 import PillButton from "components/elements/PillButton";
 
 const StyledFilterCompound = styled.div`
-  *:not(:last-child) {
+  > *:not(:last-child) {
     margin-right: ${(p) => p.theme.size[16]};
   }
 
-  * {
+  > * {
     margin-bottom: ${(p) => p.theme.size[16]};
   }
 `;
@@ -23,9 +23,14 @@ export const useFilterCompound = (options) => {
   return [activeOption, handleClick];
 };
 
-const FilterCompound = ({ options, activeOption, handleFilterClick }) => {
+const FilterCompound = ({
+  options,
+  activeOption,
+  handleFilterClick,
+  ...rest
+}) => {
   return (
-    <StyledFilterCompound>
+    <StyledFilterCompound {...rest}>
       {options.map((option) => (
         <PillButton
           type={activeOption === option.key ? "primary" : "secondary"}

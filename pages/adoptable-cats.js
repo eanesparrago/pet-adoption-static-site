@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import Layout from "components/Layout";
 import FilterCompound, {
   useFilterCompound,
 } from "components/compounds/FilterCompound";
+
+import AnimalCard from "components/compounds/AnimalCard";
 
 const S = {};
 
@@ -15,18 +16,22 @@ S.HeadingBlock = styled.header`
   align-items: center;
   margin-bottom: ${(p) => p.theme.size[32]};
 
-  h1 {
+  > h1 {
     font-size: 3.875rem;
     font-weight: 300;
     color: ${(p) => p.theme.color.primary.main};
     margin-right: ${(p) => p.theme.size[32]};
   }
 
-  svg {
+  > svg {
     fill: ${(p) => p.theme.color.primary.main};
     width: ${(p) => p.theme.size[48]};
     height: ${(p) => p.theme.size[48]};
   }
+`;
+
+S.FilterCompound = styled(FilterCompound)`
+  margin-bottom: ${(p) => p.theme.size[96]};
 `;
 
 const filterOptions = [
@@ -49,13 +54,13 @@ const AdoptableCats = () => {
         </svg>
       </S.HeadingBlock>
 
-      <div>
-        <FilterCompound
-          options={filterOptions}
-          activeOption={activeOption}
-          handleFilterClick={handleFilterClick}
-        ></FilterCompound>
-      </div>
+      <S.FilterCompound
+        options={filterOptions}
+        activeOption={activeOption}
+        handleFilterClick={handleFilterClick}
+      ></S.FilterCompound>
+
+      <AnimalCard></AnimalCard>
     </S.Layout>
   );
 };
