@@ -14,4 +14,8 @@ export default createGlobalStyle`
     font-size: 19px;
     font-family: ${theme.font.sansSerif}
   }
+
+  a:focus, button:focus {
+    outline: 1px solid black !important;
+  }
 `;

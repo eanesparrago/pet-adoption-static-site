@@ -47,5 +47,7 @@ export default {
     96: "6rem",
     pixel: (pixel) => `${pixel / 16}rem`,
   },
-  shadow: [],
+  shadow: {
+    small: "0px 4px 4px rgba(0, 0, 0, 0.2);",
+  },
 };
