@@ -11,6 +11,16 @@ S.Layout = styled.div`
   display: flex;
   flex-flow: column;
 
+  @media (max-width: ${(p) => p.theme.breakpoint.desktopXL}) {
+    padding-left: ${(p) => p.theme.size.pixel(96)};
+    padding-right: ${(p) => p.theme.size.pixel(96)};
+  }
+
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
+    padding-left: ${(p) => p.theme.size.pixel(24)};
+    padding-right: ${(p) => p.theme.size.pixel(24)};
+  }
+
   .home {
     height: 100%;
     display: flex;

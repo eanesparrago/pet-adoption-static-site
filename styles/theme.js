@@ -1,12 +1,12 @@
 export default {
   breakpoint: {
     phone: "0rem",
-    tabletPortrait: "37.5rem",
-    tabletLandscape: "56.25rem",
-    desktopM: "75rem",
-    desktopL: "93.75rem",
-    desktopXL: "112.5rem",
-    desktopXXL: "125rem",
+    tabletPortrait: "37.5rem", // 600px
+    tabletLandscape: "56.25rem", // 900px
+    desktopM: "75rem", // 1200px
+    desktopL: "93.75rem", // 1500px
+    desktopXL: "112.5rem", // 1800px
+    desktopXXL: "125rem", // 2000px
   },
   font: {
     sansSerif: "Open Sans, sans-serif",

@@ -10,15 +10,40 @@ S.Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
+    flex-flow: column;
+    border-bottom: 1px solid ${(p) => p.theme.color.grey[500]};
+    margin-bottom: ${(p) => p.theme.size[64]};
+    padding-bottom: ${(p) => p.theme.size[48]};
+  }
 `;
 
 S.Logo = styled.img`
   width: ${(p) => p.theme.size.pixel(128)};
+
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
+    margin-bottom: ${(p) => p.theme.size[32]};
+  }
 `;
 
 S.Nav = styled.nav`
   *:not(:last-child) {
     margin-right: ${(p) => p.theme.size[64]};
+  }
+
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    * {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    *:not(:last-child) {
+      margin-bottom: ${(p) => p.theme.size[16]};
+    }
   }
 `;
 

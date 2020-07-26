@@ -7,6 +7,10 @@ const StyledFilterCompound = styled.div`
   *:not(:last-child) {
     margin-right: ${(p) => p.theme.size[16]};
   }
+
+  * {
+    margin-bottom: ${(p) => p.theme.size[16]};
+  }
 `;
 
 export const useFilterCompound = (options) => {
