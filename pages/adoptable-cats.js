@@ -8,7 +8,7 @@ import AnimalCard from "components/compounds/AnimalCard";
 import { getSortedPostsData } from "lib/posts";
 
 export async function getStaticProps() {
-  const allData = getSortedPostsData();
+  const allData = getSortedPostsData("cats");
   return {
     props: {
       cats: allData,
