@@ -6,14 +6,14 @@ const AnimalCard = ({ data = {} }) => {
     name = "Stevey",
     age = 5,
     gender = "male",
-    imageUrl = "/static/images/cats/cat-01.jpg",
+    profileImageUrl = "/static/images/cats/cat-01.jpg",
     isSpecial = false,
   } = data;
 
   return (
     <S.AnimalCard>
       <div className="AnimalCard__photo-wrapper">
-        <img className="AnimalCard__photo" src={imageUrl} alt="" />
+        <img className="AnimalCard__photo" src={profileImageUrl} alt="" />
       </div>
 
       <div className="AnimalCard__detail-block">
@@ -23,7 +23,7 @@ const AnimalCard = ({ data = {} }) => {
           {age} year{age > 1 && "s"} old
         </p>
 
-        <GenderIndicator className="AnimalCard__GenderIndicator"></GenderIndicator>
+        <GenderIndicator className="AnimalCard__GenderIndicator" gender={gender}></GenderIndicator>
       </div>
 
       <div className="AnimalCard__line-decoration"></div>
