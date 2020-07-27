@@ -21,19 +21,7 @@ S.Layout = styled.div`
     padding-right: ${(p) => p.theme.size.pixel(24)};
   }
 
-  .home {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    p {
-      color: ${(p) => p.theme.color.primary.main};
-      font-weight: 600;
-    }
-  }
-
-  .paw-graphic {
+  .Layout__paw-graphic {
     fill: ${(p) => p.theme.color.primary.main};
     opacity: 0.5;
     width: ${(p) => p.theme.size.pixel(512)};
@@ -44,15 +32,15 @@ S.Layout = styled.div`
   }
 `;
 
-const Layout = ({ children }) => {
+const Layout = ({ children, ...rest }) => {
   return (
-    <S.Layout>
+    <S.Layout {...rest}>
       <Header></Header>
 
       {children}
 
       <svg
-        className="paw-graphic"
+        className="Layout__paw-graphic"
         viewBox="0 0 512 449"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
