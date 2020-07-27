@@ -73,22 +73,40 @@ S.HeadingBlock = styled.header`
   align-items: center;
   margin-bottom: ${(p) => p.theme.size[32]};
 
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    flex-flow: column-reverse nowrap;
+  }
+
   > h1 {
     font-size: 3.875rem;
     font-weight: 300;
     color: ${(p) => p.theme.color.primary.main};
     margin-right: ${(p) => p.theme.size[32]};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-right: 0;
+    }
   }
 
   > svg {
     fill: ${(p) => p.theme.color.primary.main};
     width: ${(p) => p.theme.size[48]};
     height: ${(p) => p.theme.size[48]};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      margin-bottom: ${(p) => p.theme.size[8]};
+    }
   }
 `;
 
 S.FilterCompound = styled(FilterCompound)`
   margin-bottom: calc(${(p) => p.theme.size[96]} - ${(p) => p.theme.size[16]});
+
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    text-align: center;
+  }
 `;
 
 S.AnimalCardGroup = styled.section`
@@ -97,9 +115,18 @@ S.AnimalCardGroup = styled.section`
   justify-content: center;
   margin-bottom: ${(p) => p.theme.size[32]};
 
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    margin-bottom: ${(p) => p.theme.size.pixel(128)};
+  }
+
   > * {
     margin-right: ${(p) => p.theme.size[24]};
     margin-bottom: ${(p) => p.theme.size[64]};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      margin-right: 0;
+      margin-bottom: ${(p) => p.theme.size[32]};
+    }
   }
 `;
 

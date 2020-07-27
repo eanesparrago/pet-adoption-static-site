@@ -20,7 +20,7 @@ const StyledPillButton = styled.button`
   ${(p) =>
     p.type === "secondary" &&
     css`
-      background-color: unset;
+      background-color: ${(p) => p.theme.color.white};
       color: ${(p) => p.theme.color.primary.main};
       border: 2px solid ${(p) => p.theme.color.primary.main};
     `}

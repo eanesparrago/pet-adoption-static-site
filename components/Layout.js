@@ -23,12 +23,19 @@ S.Layout = styled.div`
 
   .Layout__paw-graphic {
     fill: ${(p) => p.theme.color.primary.main};
-    opacity: 0.5;
+    opacity: 0.3;
     width: ${(p) => p.theme.size.pixel(512)};
     position: fixed;
     right: -${(p) => p.theme.size[48]};
     bottom: -${(p) => p.theme.size[48]};
     z-index: -100;
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      left: 50%;
+      bottom: -${(p) => p.theme.size[48]};
+      transform: translateX(-50%);
+      width: ${(p) => p.theme.size.pixel(256)};
+    }
   }
 `;
 
