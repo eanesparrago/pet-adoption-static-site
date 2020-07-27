@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import GenderIndicator from "components/elements/GenderIndicator";
+import SpecialIndicator from "components/elements/SpecialIndicator";
 
 const AnimalCard = ({ data = {} }) => {
   const {
@@ -8,6 +9,7 @@ const AnimalCard = ({ data = {} }) => {
     gender = "male",
     profileImageUrl = "/static/images/cats/cat-01.jpg",
     isSpecial = false,
+    petType,
   } = data;
 
   return (
@@ -23,7 +25,17 @@ const AnimalCard = ({ data = {} }) => {
           {age} year{age > 1 && "s"} old
         </p>
 
-        <GenderIndicator className="AnimalCard__GenderIndicator" gender={gender}></GenderIndicator>
+        <GenderIndicator
+          className="AnimalCard__GenderIndicator"
+          gender={gender}
+        ></GenderIndicator>
+
+        {isSpecial && (
+          <SpecialIndicator
+            className="AnimalCard__SpecialIndicator"
+            petType={petType}
+          ></SpecialIndicator>
+        )}
       </div>
 
       <div className="AnimalCard__line-decoration"></div>
@@ -81,6 +93,12 @@ S.AnimalCard = styled.article`
   .AnimalCard__GenderIndicator {
     position: absolute;
     top: -${(p) => p.theme.size[16]};
+    right: ${(p) => p.theme.size[16]};
+  }
+
+  .AnimalCard__SpecialIndicator {
+    position: absolute;
+    bottom: ${(p) => p.theme.size[16]};
     right: ${(p) => p.theme.size[16]};
   }
 `;

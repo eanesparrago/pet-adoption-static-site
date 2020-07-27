@@ -34,6 +34,7 @@ export default {
     },
     pink: "#E91E63",
     blue: "#2196F3",
+    red: "#F44336",
   },
   size: {
     2: "0.125rem",
