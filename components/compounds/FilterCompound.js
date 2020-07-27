@@ -14,18 +14,18 @@ const StyledFilterCompound = styled.div`
 `;
 
 export const useFilterCompound = (options) => {
-  const [activeOption, setActiveOption] = useState(options[0].key);
+  const [activeFilter, setActiveOption] = useState(options[0].key);
 
   const handleClick = (e) => {
     setActiveOption(e.target.name);
   };
 
-  return [activeOption, handleClick];
+  return [activeFilter, handleClick];
 };
 
 const FilterCompound = ({
   options,
-  activeOption,
+  activeFilter,
   handleFilterClick,
   ...rest
 }) => {
@@ -33,7 +33,7 @@ const FilterCompound = ({
     <StyledFilterCompound {...rest}>
       {options.map((option) => (
         <PillButton
-          type={activeOption === option.key ? "primary" : "secondary"}
+          type={activeFilter === option.key ? "primary" : "secondary"}
           key={option.key}
           name={option.key}
           onClick={handleFilterClick}

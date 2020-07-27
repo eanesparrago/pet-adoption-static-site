@@ -24,7 +24,20 @@ const filterOptions = [
 ];
 
 const AdoptableCats = ({ cats }) => {
-  const [activeOption, handleFilterClick] = useFilterCompound(filterOptions);
+  const [activeFilter, handleFilterClick] = useFilterCompound(filterOptions);
+
+  const filteredCats = () => {
+    switch (activeFilter) {
+      case filterOptions[0].key:
+        return cats;
+      case filterOptions[1].key:
+        return cats.filter((cat) => cat.gender === "female");
+      case filterOptions[2].key:
+        return cats.filter((cat) => cat.gender === "male");
+      case filterOptions[3].key:
+        return cats.filter((cat) => cat.isSpecial === true);
+    }
+  };
 
   return (
     <S.Layout>
@@ -38,15 +51,15 @@ const AdoptableCats = ({ cats }) => {
 
       <S.FilterCompound
         options={filterOptions}
-        activeOption={activeOption}
+        activeFilter={activeFilter}
         handleFilterClick={handleFilterClick}
       ></S.FilterCompound>
 
-      <S.AnimaCardGroup>
-        {cats.map((cat) => (
+      <S.AnimalCardGroup>
+        {filteredCats().map((cat) => (
           <AnimalCard key={cat.id} data={cat}></AnimalCard>
         ))}
-      </S.AnimaCardGroup>
+      </S.AnimalCardGroup>
     </S.Layout>
   );
 };
@@ -78,7 +91,7 @@ S.FilterCompound = styled(FilterCompound)`
   margin-bottom: calc(${(p) => p.theme.size[96]} - ${(p) => p.theme.size[16]});
 `;
 
-S.AnimaCardGroup = styled.section`
+S.AnimalCardGroup = styled.section`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;

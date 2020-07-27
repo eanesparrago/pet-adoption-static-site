@@ -12,7 +12,8 @@ export default createGlobalStyle`
   
   body {
     font-size: 19px;
-    font-family: ${theme.font.sansSerif}
+    font-family: ${theme.font.sansSerif};
+    overflow-y: scroll;
   }
 
   a:focus, button:focus {
