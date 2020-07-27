@@ -18,4 +18,5 @@ export default createGlobalStyle`
   a:focus, button:focus {
     outline: 1px solid black !important;
   }
+ 
 `;

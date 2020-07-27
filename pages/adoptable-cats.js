@@ -31,7 +31,7 @@ S.HeadingBlock = styled.header`
 `;
 
 S.FilterCompound = styled(FilterCompound)`
-  margin-bottom: ${(p) => p.theme.size[96]};
+  margin-bottom: calc(${(p) => p.theme.size[96]} - ${(p) => p.theme.size[16]});
 `;
 
 const filterOptions = [
@@ -40,6 +40,17 @@ const filterOptions = [
   { key: "maleCats", text: "Male Cats" },
   { key: "specialNeedsCats", text: "Special Needs Cats" },
 ];
+
+S.AnimaCardGroup = styled.section`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  > * {
+    margin-right: ${(p) => p.theme.size[24]};
+    margin-bottom: ${(p) => p.theme.size[64]};
+  }
+`;
 
 const AdoptableCats = () => {
   const [activeOption, handleFilterClick] = useFilterCompound(filterOptions);
@@ -60,7 +71,16 @@ const AdoptableCats = () => {
         handleFilterClick={handleFilterClick}
       ></S.FilterCompound>
 
-      <AnimalCard></AnimalCard>
+      <S.AnimaCardGroup>
+        <AnimalCard></AnimalCard>
+        <AnimalCard></AnimalCard>
+        <AnimalCard></AnimalCard>
+        <AnimalCard></AnimalCard>
+        <AnimalCard></AnimalCard>
+        <AnimalCard></AnimalCard>
+        <AnimalCard></AnimalCard>
+        <AnimalCard></AnimalCard>
+      </S.AnimaCardGroup>
     </S.Layout>
   );
 };
