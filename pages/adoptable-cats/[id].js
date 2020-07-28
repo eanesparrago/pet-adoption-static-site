@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import Head from "next/head";
 
 import PawsLogo from "components/elements/PawsLogo";
 import BackButton from "components/elements/BackButton";
@@ -40,6 +41,12 @@ const Profile = ({ postData }) => {
 
   return (
     <S.Profile>
+      <Head>
+        <title>{name} | Adoptable Cats | PAWS</title>
+
+        <meta name="description" content={`Adopt ${name}`} />
+      </Head>
+
       <PawsLogo className="Profile__PawsLogo"></PawsLogo>
 
       <main className="Profile__main">

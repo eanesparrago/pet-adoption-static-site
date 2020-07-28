@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import Head from "next/head";
 
 import Layout from "components/Layout";
 import FilterCompound, {
@@ -42,6 +43,12 @@ const AdoptableCats = ({ cats }) => {
 
   return (
     <S.Layout>
+      <Head>
+        <title>Adoptable Cats | PAWS</title>
+
+        <meta name="description" content="PAWS adoptable cats" />
+      </Head>
+
       <S.HeadingBlock>
         <h1>Adoptable Cats</h1>
 
@@ -64,6 +71,15 @@ const AdoptableCats = ({ cats }) => {
             key={cat.id}
           >
             <a>
+              <span
+                style={{
+                  position: "absolute",
+                  top: "-1000px",
+                  left: "-1000px",
+                }}
+              >
+                {cat.name}
+              </span>
               <AnimalCard data={cat}></AnimalCard>
             </a>
           </Link>

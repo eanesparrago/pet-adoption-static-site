@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import Head from "next/head";
 
 import Layout from "components/Layout";
 import FilterCompound, {
@@ -42,6 +43,12 @@ const AdoptableDogs = ({ dogs }) => {
 
   return (
     <S.Layout>
+      <Head>
+        <title>Adoptable Dogs | PAWS</title>
+
+        <meta name="description" content="PAWS adoptable dogs" />
+      </Head>
+
       <S.HeadingBlock>
         <h1>Adoptable Dogs</h1>
 

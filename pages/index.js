@@ -1,4 +1,6 @@
+import Head from "next/head";
 import styled from "styled-components";
+
 import Header from "components/Header";
 import Layout from "components/Layout";
 
@@ -21,6 +23,12 @@ S.Home = styled(Layout)`
 export default function Home() {
   return (
     <S.Home>
+      <Head>
+        <title>Home | PAWS</title>
+
+        <meta name="description" content="PAWS cat and dog adoption website" />
+      </Head>
+
       <div className="Home__wrapper">
         <p className="Home__text">Home page :)</p>
       </div>

@@ -9,14 +9,7 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <>
-        <Head>
-          <link rel="stylesheet" href="/static/css/destyle.css" />
-
-          <link
-            href="https://fonts.googleapis.com/css2?family=Faustina&family=Open+Sans:wght@300;400;600;700&display=swap"
-            rel="stylesheet"
-          ></link>
-        </Head>
+        <Head></Head>
 
         <ThemeProvider theme={theme}>
           <GlobalStyle></GlobalStyle>
