@@ -7,9 +7,11 @@ age: 2
 residencyYears: 2
 isSpecial: false
 date: '2020-07-27'
-affectionate: 8
-playful: 9
-likesOtherAnimals: 8
+ratings: [
+    { label: "Affectionate", value: 8 },
+    { label: "Playful", value: 9 },
+    { label: "Likes other animals", value: 8 },
+  ]
 profileImageUrl: "/static/images/cats/003-shadow/profile.jpg"
 galleryImageUrls: [""]
 ---

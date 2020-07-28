@@ -8,10 +8,12 @@ age: 5
 residencyYears: 1
 isSpecial: true
 date: '2020-07-27'
-affectionate: 10
-playful: 9
-kidFriendly: 9
-likesOtherAnimals: 50
+ratings: [
+    { label: "Affectionate", value: 10 },
+    { label: "Playful", value: 9 },
+    { label: "Kid-friendly", value: 9 },
+    { label: "Likes other animals", value: 5 },
+  ]
 profileImageUrl: "/static/images/dogs/004-dolores/profile.jpg"
 galleryImageUrls: [""]
 ---

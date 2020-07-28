@@ -8,10 +8,12 @@ age: 9
 residencyYears: 3
 isSpecial: false
 date: '2020-07-27'
-affectionate: 8
-playful: 9
-kidFriendly: 9
-likesOtherAnimals: 8
+ratings: [
+    { label: "Affectionate", value: 8 },
+    { label: "Playful", value: 9 },
+    { label: "Kid-friendly", value: 9 },
+    { label: "Likes other animals", value: 8 },
+  ]
 profileImageUrl: "/static/images/dogs/005-xander/profile.jpg"
 galleryImageUrls: [""]
 ---

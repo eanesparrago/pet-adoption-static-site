@@ -7,9 +7,11 @@ age: 8
 residencyYears: 7
 isSpecial: false
 date: '2020-07-27'
-affectionate: 8
-playful: 8
-likesOtherAnimals: 8
+ratings: [
+    { label: "Affectionate", value: 8 },
+    { label: "Playful", value: 8 },
+    { label: "Likes other animals", value: 8 },
+  ]
 profileImageUrl: "/static/images/cats/002-kevin/profile.jpg"
 galleryImageUrls: [""]
 ---

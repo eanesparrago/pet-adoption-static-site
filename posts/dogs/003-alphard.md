@@ -8,10 +8,12 @@ age: 1
 residencyYears: 1
 isSpecial: false
 date: '2020-07-27'
-affectionate: 8
-playful: 9
-kidFriendly: 9
-likesOtherAnimals: 9
+ratings: [
+    { label: "Affectionate", value: 8 },
+    { label: "Playful", value: 9 },
+    { label: "Kid-friendly", value: 9 },
+    { label: "Likes other animals", value: 9 },
+  ]
 profileImageUrl: "/static/images/dogs/003-alphard/profile.jpg"
 galleryImageUrls: [""]
 ---

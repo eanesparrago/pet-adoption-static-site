@@ -8,10 +8,12 @@ age: 5
 residencyYears: 2
 isSpecial: false
 date: '2020-07-27'
-affectionate: 8
-playful: 9
-kidFriendly: 8
-likesOtherAnimals: 7
+ratings: [
+    { label: "Affectionate", value: 8 },
+    { label: "Playful", value: 9 },
+    { label: "Kid-friendly", value: 8 },
+    { label: "Likes other animals", value: 7 },
+  ]
 profileImageUrl: "/static/images/dogs/001-dexter/profile.jpg"
 galleryImageUrls: [""]
 ---

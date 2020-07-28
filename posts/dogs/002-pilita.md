@@ -8,10 +8,12 @@ age: 3
 residencyYears: 1
 isSpecial: false
 date: '2020-07-27'
-affectionate: 9
-playful: 8
-kidFriendly: 9
-likesOtherAnimals: 9
+ratings: [
+    { label: "Affectionate", value: 9 },
+    { label: "Playful", value: 8 },
+    { label: "Kid-friendly", value: 9 },
+    { label: "Likes other animals", value: 9 },
+  ]
 profileImageUrl: "/static/images/dogs/002-pilita/profile.jpg"
 galleryImageUrls: [""]
 ---

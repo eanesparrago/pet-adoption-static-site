@@ -24,6 +24,14 @@ export async function getStaticProps({ params }) {
 
 const CatProfile = ({ postData }) => {
   console.log(postData);
+  const {
+    profileImageUrl,
+    name,
+    age,
+    residencyYears,
+    gender,
+    ratings,
+  } = postData;
 
   return (
     <S.CatProfile>
@@ -33,8 +41,8 @@ const CatProfile = ({ postData }) => {
         <section className="CatProfile__left-area">
           <div className="CatProfile__profilePicture-wrapper">
             <img
-              src="/static/images/cats/001-stevey/profile.jpg"
-              alt=""
+              src={profileImageUrl}
+              alt={name}
               className="CatProfle__profilePicture"
             />
           </div>
@@ -44,25 +52,33 @@ const CatProfile = ({ postData }) => {
           <h1 className="CatProfile__heading">
             <span className="CatProfile__headingAdopt">Adopt</span>
             <br />
-            <span className="CatProfile__headingName">Stevey</span>
+            <span className="CatProfile__headingName">{name}</span>
           </h1>
 
           <div className="CatProfile__detail-wrapper">
             <GenderIndicator
+              gender={gender}
               className="CatProfile__GenderIndicator"
               withLabel
             ></GenderIndicator>
 
             <span>
-              Approx. <strong>5 years old</strong> (Shelter resident for{" "}
-              <strong>4 years</strong>)
+              Approx.{" "}
+              <strong>
+                {age} year{age > 1 && "s"} old
+              </strong>{" "}
+              (Shelter resident for{" "}
+              <strong>
+                {residencyYears} year{age > 1 && "s"}
+              </strong>
+              )
             </span>
           </div>
 
           <ul className="CatProfile__RatingBlock-group">
-            <RatingBlock as="li" label="Affectionate"></RatingBlock>
-            <RatingBlock as="li" label="Playful"></RatingBlock>
-            <RatingBlock as="li" label="Likes other animals"></RatingBlock>
+            {ratings.map((rating, i) => (
+              <RatingBlock as="li" data={rating} key={i}></RatingBlock>
+            ))}
           </ul>
         </article>
       </main>

@@ -5,7 +5,7 @@ const S = {};
 S.SpecialIndicator = styled.figure``;
 
 const SpecialIndicator = ({ petType, ...rest }) => {
-  const petTypeCapitalized = petType.charAt(0).toUpperCase() + petType.slice(1)
+  const petTypeCapitalized = petType.charAt(0).toUpperCase() + petType.slice(1);
 
   return (
     <S.SpecialIndicator {...rest}>
@@ -17,9 +17,7 @@ const SpecialIndicator = ({ petType, ...rest }) => {
         xmlns="http://www.w3.org/2000/svg"
         aria-labelledby="special_indicator"
       >
-        <title id="gender_indicator">
-          Special Needs {petTypeCapitalized}
-        </title>
+        <title id="gender_indicator">Special Needs {petTypeCapitalized}</title>
 
         <g clipPath="url(#clip0)">
           <path

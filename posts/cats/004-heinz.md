@@ -7,9 +7,11 @@ age: 4
 residencyYears: 3
 isSpecial: false
 date: '2020-07-27'
-affectionate: 9
-playful: 9
-likesOtherAnimals: 8
+ratings: [
+    { label: "Affectionate", value: 9 },
+    { label: "Playful", value: 9 },
+    { label: "Likes other animals", value: 8 },
+  ]
 profileImageUrl: "/static/images/cats/004-heinz/profile.jpg"
 galleryImageUrls: [""]
 ---

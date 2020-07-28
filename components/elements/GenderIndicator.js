@@ -2,6 +2,8 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 const GenderIndicator = ({ gender = "male", withLabel = false, ...rest }) => {
+  const genderText = gender.charAt(0).toUpperCase() + gender.slice(1);
+
   return (
     <S.GenderIndicator gender={gender} withLabel={withLabel} {...rest}>
       {(gender === "male" && (
@@ -29,7 +31,9 @@ const GenderIndicator = ({ gender = "male", withLabel = false, ...rest }) => {
           </svg>
         ))}
 
-      {withLabel && <span className="GenderIndicator__label">Male</span>}
+      {withLabel && (
+        <span className="GenderIndicator__label">{genderText}</span>
+      )}
     </S.GenderIndicator>
   );
 };

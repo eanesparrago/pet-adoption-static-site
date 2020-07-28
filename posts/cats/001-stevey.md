@@ -6,10 +6,12 @@ gender: "male"
 age: 5
 residencyYears: 4
 isSpecial: false
+ratings: [
+    { label: "Affectionate", value: 8 },
+    { label: "Playful", value: 8 },
+    { label: "Likes other animals", value: 8 },
+  ]
 date: '2020-07-27'
-affectionate: 8
-playful: 8
-likesOtherAnimals: 8
 profileImageUrl: "/static/images/cats/001-stevey/profile.jpg"
 galleryImageUrls: [""]
 ---
