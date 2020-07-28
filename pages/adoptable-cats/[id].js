@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 import PawsLogo from "components/elements/PawsLogo";
+import BackButton from "components/elements/BackButton";
 import PillButton from "components/elements/PillButton";
 import TextButton from "components/elements/TextButton";
 import GenderIndicator from "components/elements/GenderIndicator";
@@ -44,6 +46,10 @@ const CatProfile = ({ postData }) => {
       <main className="CatProfile__main">
         <section className="CatProfile__left-areaWrapper">
           <div className="CatProfile__left-area">
+            <Link href="/adoptable-cats">
+              <BackButton className="CatProfile__BackButton"></BackButton>
+            </Link>
+
             <div className="CatProfile__profilePicture-wrapper">
               <img
                 src={profileImageUrl}
@@ -94,7 +100,7 @@ const CatProfile = ({ postData }) => {
           {galleryImageUrls.length > 0 && (
             <div className="CatProfile__gallery-group">
               {galleryImageUrls.map((galleryImageUrl, i) => (
-                <div className="CatProfile__galleryImage-wrapper1">
+                <div className="CatProfile__galleryImage-wrapper1" key={i}>
                   <div className="CatProfile__galleryImage-wrapper2">
                     <img
                       className="CatProfile__galleryImage"
@@ -137,7 +143,9 @@ const CatProfile = ({ postData }) => {
             </PillButton>
           </div>
 
-          <TextButton as="a">See other adoptable cats</TextButton>
+          <Link href="/adoptable-cats">
+            <TextButton as="a">See other adoptable cats</TextButton>
+          </Link>
         </article>
       </main>
     </S.CatProfile>
@@ -203,6 +211,12 @@ S.CatProfile = styled.div`
     position: fixed;
     left: ${(p) => p.theme.size.pixel(384)};
     width: ${(p) => p.theme.size.pixel(384)};
+  }
+
+  .CatProfile__BackButton {
+    position: absolute;
+    left: -${(p) => p.theme.size[64]};
+    top: -${(p) => p.theme.size[48]};
   }
 
   .CatProfile__right-area {
