@@ -13,7 +13,7 @@ ratings: [
     { label: "Likes other animals", value: 8 },
   ]
 profileImageUrl: "/static/images/cats/006-kallie/profile.jpg"
-galleryImageUrls: [""]
+galleryImageUrls: []
 ---
 
 ## Kallie’s Story

@@ -13,7 +13,7 @@ ratings: [
     { label: "Likes other animals", value: 8 },
   ]
 profileImageUrl: "/static/images/cats/003-shadow/profile.jpg"
-galleryImageUrls: [""]
+galleryImageUrls: []
 ---
 
 ## Kevin’s Story

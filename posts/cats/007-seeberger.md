@@ -13,7 +13,7 @@ ratings: [
     { label: "Likes other animals", value: 8 },
   ]
 profileImageUrl: "/static/images/cats/007-seeberger/profile.jpg"
-galleryImageUrls: [""]
+galleryImageUrls: []
 ---
 
 ## Seeberger’s Story

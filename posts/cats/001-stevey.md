@@ -13,7 +13,14 @@ ratings: [
   ]
 date: '2020-07-27'
 profileImageUrl: "/static/images/cats/001-stevey/profile.jpg"
-galleryImageUrls: [""]
+galleryImageUrls: [
+    "/static/images/cats/001-stevey/gallery/01.jpg",
+    "/static/images/cats/001-stevey/gallery/02.jpg",
+    "/static/images/cats/001-stevey/gallery/03.jpg",
+    "/static/images/cats/001-stevey/gallery/04.jpg",
+    "/static/images/cats/001-stevey/gallery/05.jpg",
+    "/static/images/cats/001-stevey/gallery/06.jpg",
+  ]
 ---
 
 ## Stevey’s Story

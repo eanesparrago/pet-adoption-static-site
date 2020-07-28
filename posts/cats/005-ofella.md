@@ -13,7 +13,7 @@ ratings: [
     { label: "Likes other animals", value: 8 },
   ]
 profileImageUrl: "/static/images/cats/005-ofella/profile.jpg"
-galleryImageUrls: [""]
+galleryImageUrls: []
 ---
 
 ## Ofella’s Story
