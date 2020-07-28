@@ -6,6 +6,8 @@ S.BackButton = styled.button`
   width: ${(p) => p.theme.size[48]};
   height: ${(p) => p.theme.size[48]};
   border: 2px solid ${(p) => p.theme.color.primary.main};
+  background-color: ${p => p.theme.color.white};
+  z-index: 1000;
 
   > svg {
     fill: ${(p) => p.theme.color.primary.main};

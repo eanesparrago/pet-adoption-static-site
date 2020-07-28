@@ -75,7 +75,7 @@ const CatProfile = ({ postData }) => {
                 withLabel
               ></GenderIndicator>
 
-              <span>
+              <span className="CatProfile__age">
                 Approx.{" "}
                 <strong>
                   {age} year{age > 1 && "s"} old
@@ -155,12 +155,21 @@ const CatProfile = ({ postData }) => {
 const StyledProfileStory = styled.div`
   padding-bottom: ${(p) => p.theme.size[32]};
 
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    padding-bottom: ${(p) => p.theme.size[24]};
+  }
+
   & > h2 {
     line-height: 100%;
     font-size: 3.875rem;
     color: ${(p) => p.theme.color.primary.main};
     margin-bottom: ${(p) => p.theme.size[32]};
     font-family: ${(p) => p.theme.font.serif};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      font-size: 2rem;
+      margin-bottom: ${(p) => p.theme.size[24]};
+    }
   }
 
   & > p {
@@ -168,6 +177,11 @@ const StyledProfileStory = styled.div`
     line-height: 200%;
     color: ${(p) => p.theme.color.grey[800]};
     margin-bottom: ${(p) => p.theme.size[32]};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      font-size: 1rem;
+      margin-bottom: ${(p) => p.theme.size[24]};
+    }
   }
 
   & > h3 {
@@ -177,6 +191,12 @@ const StyledProfileStory = styled.div`
     padding-top: ${(p) => p.theme.size[32]};
     margin-bottom: ${(p) => p.theme.size[24]};
     font-family: ${(p) => p.theme.font.serif};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      font-size: 1.5rem;
+      padding-top: ${(p) => p.theme.size[24]};
+      margin-bottom: ${(p) => p.theme.size[16]};
+    }
   }
 `;
 
@@ -193,6 +213,17 @@ S.CatProfile = styled.div`
     position: fixed;
     top: ${(p) => p.theme.size[32]};
     left: ${(p) => p.theme.size[48]};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopM}) {
+      position: absolute;
+      left: unset;
+      right: ${(p) => p.theme.size[96]};
+    }
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      right: ${(p) => p.theme.size[24]};
+      width: ${(p) => p.theme.size[64]};
+    }
   }
 
   .CatProfile__main {
@@ -200,23 +231,77 @@ S.CatProfile = styled.div`
     margin-right: ${(p) => p.theme.size.pixel(384)};
     padding-top: ${(p) => p.theme.size[96]};
     display: flex;
+
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopXL}) {
+      margin-right: ${(p) => p.theme.size.pixel(192)};
+    }
+
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
+      margin-left: ${(p) => p.theme.size.pixel(192)};
+      margin-right: ${(p) => p.theme.size.pixel(128)};
+    }
+
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopM}) {
+      margin-left: ${(p) => p.theme.size.pixel(96)};
+      margin-right: ${(p) => p.theme.size.pixel(96)};
+      flex-flow: column;
+    }
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      margin-left: ${(p) => p.theme.size.pixel(24)};
+      margin-right: ${(p) => p.theme.size.pixel(24)};
+    }
   }
 
   .CatProfile__left-areaWrapper {
     width: ${(p) => p.theme.size.pixel(384)};
     margin-left: ${(p) => p.theme.size.pixel(384)};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopXL}) {
+      width: ${(p) => p.theme.size.pixel(192)};
+      margin-left: ${(p) => p.theme.size.pixel(352)};
+    }
+
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopM}) {
+      width: unset;
+      margin: 0 auto;
+      margin-bottom: ${(p) => p.theme.size[8]};
+    }
   }
 
   .CatProfile__left-area {
     position: fixed;
     left: ${(p) => p.theme.size.pixel(384)};
     width: ${(p) => p.theme.size.pixel(384)};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopXL}) {
+      left: ${(p) => p.theme.size.pixel(320)};
+    }
+
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
+      left: ${(p) => p.theme.size.pixel(272)};
+    }
+
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopM}) {
+      position: static;
+      width: unset;
+    }
   }
 
   .CatProfile__BackButton {
     position: absolute;
     left: -${(p) => p.theme.size[64]};
     top: -${(p) => p.theme.size[48]};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopM}) {
+      position: fixed;
+      left: ${(p) => p.theme.size[96]};
+      top: ${(p) => p.theme.size[32]};
+    }
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      left: ${(p) => p.theme.size[24]};
+    }
   }
 
   .CatProfile__right-area {
@@ -224,22 +309,58 @@ S.CatProfile = styled.div`
   }
 
   .CatProfile__profilePicture-wrapper {
-    height: ${(p) => p.theme.size.pixel(384)};
     width: ${(p) => p.theme.size.pixel(384)};
+    height: ${(p) => p.theme.size.pixel(384)};
     border-radius: 1000px;
     overflow: hidden;
+
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopXL}) {
+      width: ${(p) => p.theme.size.pixel(384)};
+      height: ${(p) => p.theme.size.pixel(384)};
+    }
+
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
+      width: ${(p) => p.theme.size.pixel(256)};
+      height: ${(p) => p.theme.size.pixel(256)};
+    }
+
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopM}) {
+      width: ${(p) => p.theme.size.pixel(384)};
+      height: ${(p) => p.theme.size.pixel(384)};
+    }
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      width: ${(p) => p.theme.size.pixel(256)};
+      height: ${(p) => p.theme.size.pixel(256)};
+    }
   }
 
   .CatProfle__profilePicture {
     height: 100%;
     width: 100%;
     object-fit: cover;
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    }
   }
 
   .CatProfile__detail-block {
     padding-bottom: ${(p) => p.theme.size[64]};
     border-bottom: 1px solid ${(p) => p.theme.color.grey[500]};
     margin-bottom: ${(p) => p.theme.size[48]};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      padding-bottom: ${(p) => p.theme.size[48]};
+      margin-bottom: ${(p) => p.theme.size[32]};
+    }
+  }
+
+  .CatProfile__age {
+    line-height: 150%;
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      font-size: 1rem;
+    }
   }
 
   .CatProfile__heading {
@@ -256,16 +377,29 @@ S.CatProfile = styled.div`
     line-height: 100%;
     font-family: ${(p) => p.theme.font.serif};
     color: ${(p) => p.theme.color.primary.dark};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      font-size: 4rem;
+    }
   }
 
   .CatProfile__GenderIndicator {
     margin-right: ${(p) => p.theme.size[32]};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
+      margin-bottom: ${(p) => p.theme.size[16]};
+    }
   }
 
   .CatProfile__detail-wrapper {
     display: flex;
     align-items: center;
     margin-bottom: ${(p) => p.theme.size[32]};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
+      flex-flow: column;
+      align-items: flex-start;
+    }
   }
 
   .CatProfile__RatingBlock-group {
@@ -280,10 +414,19 @@ S.CatProfile = styled.div`
     padding-bottom: ${(p) => p.theme.size[64]};
     border-bottom: 1px solid ${(p) => p.theme.color.grey[500]};
     margin-bottom: ${(p) => p.theme.size[48]};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      padding-bottom: ${(p) => p.theme.size[48]};
+      margin-bottom: ${(p) => p.theme.size[32]};
+    }
   }
 
   .CatProfile__galleryImage-wrapper1 {
     width: 33%;
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      width: 50%;
+    }
   }
 
   .CatProfile__galleryImage-wrapper2 {
@@ -309,12 +452,22 @@ S.CatProfile = styled.div`
     border-bottom: 1px solid ${(p) => p.theme.color.grey[500]};
     margin-bottom: ${(p) => p.theme.size[48]};
 
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      padding-bottom: ${(p) => p.theme.size[48]};
+      margin-bottom: ${(p) => p.theme.size[32]};
+    }
+
     h3 {
-      line-height: 100%;
+      line-height: 120%;
       font-size: 2rem;
       color: ${(p) => p.theme.color.primary.main};
       margin-bottom: ${(p) => p.theme.size[24]};
       font-family: ${(p) => p.theme.font.serif};
+
+      @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+        font-size: 1.5rem;
+        margin-bottom: ${(p) => p.theme.size[16]};
+      }
     }
 
     p {
@@ -322,10 +475,19 @@ S.CatProfile = styled.div`
       line-height: 200%;
       color: ${(p) => p.theme.color.grey[800]};
       margin-bottom: ${(p) => p.theme.size[32]};
+
+      @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+        font-size: 1rem;
+        margin-bottom: ${(p) => p.theme.size[24]};
+      }
     }
 
     .CatProfile__ctaAdoptButton {
       margin-bottom: ${(p) => p.theme.size[64]};
+
+      @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+        margin-bottom: ${(p) => p.theme.size[48]};
+      }
     }
 
     .CatProfile__ctaSponsorHeading {

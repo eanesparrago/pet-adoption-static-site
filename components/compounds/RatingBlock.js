@@ -9,7 +9,13 @@ const RatingBlock = (props) => {
 
   return (
     <S.RatingBlock {...props}>
-      <span className="RatingBlock__label">{label}</span>
+      <span className="RatingBlock__label">
+        {label}{" "}
+        <span className="RatingBlock__label-mobile">
+          {" "}
+          — {value > 0 && value}0%
+        </span>
+      </span>
 
       <div className="RatingBlock__rating">
         <div className="RatingBlock__ratingPoint-group">
@@ -57,6 +63,19 @@ S.RatingBlock = styled.div`
     margin-bottom: ${(p) => p.theme.size[16]};
     display: block;
     line-height: 100%;
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      font-size: 1rem;
+    }
+  }
+
+  .RatingBlock__label-mobile {
+    display: none;
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      font-weight: 700;
+      display: inline;
+    }
   }
 
   .RatingBlock__ratingPoint {
@@ -67,6 +86,11 @@ S.RatingBlock = styled.div`
     align-items: center;
     background-color: ${(p) => p.theme.color.primary.main};
     border-radius: 100%;
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      width: ${(p) => p.theme.size[24]};
+      height: ${(p) => p.theme.size[24]};
+    }
   }
 
   .RatingBlock__ratingPoint--dim {
@@ -76,6 +100,10 @@ S.RatingBlock = styled.div`
   .RatingBlock__ratingPointSvg {
     width: ${(p) => p.theme.size[16]};
     fill: ${(p) => p.theme.color.white};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      width: ${(p) => p.theme.size[12]};
+    }
   }
 
   .RatingBlock__rating {
@@ -96,6 +124,10 @@ S.RatingBlock = styled.div`
     font-size: 1.1875rem;
     font-weight: 700;
     color: ${(p) => p.theme.color.primary.main};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+      display: none;
+    }
   }
 `;
 
