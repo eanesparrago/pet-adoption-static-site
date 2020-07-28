@@ -2,7 +2,7 @@ import styled from "styled-components";
 import GenderIndicator from "components/elements/GenderIndicator";
 import SpecialIndicator from "components/elements/SpecialIndicator";
 
-const AnimalCard = ({ data = {} }) => {
+const AnimalCard = ({ data = {}, ...rest }) => {
   const {
     name = "Stevey",
     age = 5,
@@ -13,7 +13,7 @@ const AnimalCard = ({ data = {} }) => {
   } = data;
 
   return (
-    <S.AnimalCard>
+    <S.AnimalCard {...rest}>
       <div className="AnimalCard__photo-wrapper">
         <img className="AnimalCard__photo" src={profileImageUrl} alt="" />
       </div>
@@ -50,6 +50,7 @@ S.AnimalCard = styled.article`
   background-color: ${(p) => p.theme.color.grey[100]};
   position: relative;
   box-shadow: ${(p) => p.theme.shadow.big};
+  cursor: pointer;
 
   .AnimalCard__photo-wrapper {
     height: ${(p) => p.theme.size.pixel(192)};
