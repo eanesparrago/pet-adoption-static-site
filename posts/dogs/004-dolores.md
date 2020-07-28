@@ -15,7 +15,14 @@ ratings: [
     { label: "Likes other animals", value: 5 },
   ]
 profileImageUrl: "/static/images/dogs/004-dolores/profile.jpg"
-galleryImageUrls: [""]
+galleryImageUrls: [
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+  ]
 ---
 
 ## Dolores’s  Story

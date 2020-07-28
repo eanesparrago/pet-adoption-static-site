@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 import Layout from "components/Layout";
 import FilterCompound, {
@@ -57,7 +58,15 @@ const AdoptableDogs = ({ dogs }) => {
 
       <S.AnimalCardGroup>
         {filteredDogs().map((dog) => (
-          <AnimalCard key={dog.id} data={dog}></AnimalCard>
+          <Link
+            href="/adoptable-dogs/[slug]"
+            as={`/adoptable-dogs/${dog.id}`}
+            key={dog.id}
+          >
+            <a>
+              <AnimalCard key={dog.id} data={dog}></AnimalCard>
+            </a>
+          </Link>
         ))}
       </S.AnimalCardGroup>
     </S.Layout>

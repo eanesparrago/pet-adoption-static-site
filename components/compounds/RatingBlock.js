@@ -117,6 +117,10 @@ S.RatingBlock = styled.div`
 
     *:not(:last-child) {
       margin-right: ${(p) => p.theme.size[4]};
+
+      @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+        margin-right: ${(p) => p.theme.size[2]};
+      }
     }
   }
 

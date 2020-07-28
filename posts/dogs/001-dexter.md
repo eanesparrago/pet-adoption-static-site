@@ -15,7 +15,14 @@ ratings: [
     { label: "Likes other animals", value: 7 },
   ]
 profileImageUrl: "/static/images/dogs/001-dexter/profile.jpg"
-galleryImageUrls: [""]
+galleryImageUrls: [
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+  ]
 ---
 
 ## Dexter’s Story

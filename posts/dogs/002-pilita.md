@@ -15,7 +15,14 @@ ratings: [
     { label: "Likes other animals", value: 9 },
   ]
 profileImageUrl: "/static/images/dogs/002-pilita/profile.jpg"
-galleryImageUrls: [""]
+galleryImageUrls: [
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+  ]
 ---
 
 ## Pilita’s Story

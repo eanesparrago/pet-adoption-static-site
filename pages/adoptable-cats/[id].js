@@ -26,8 +26,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const CatProfile = ({ postData }) => {
-  console.log(postData);
+const Profile = ({ postData }) => {
   const {
     profileImageUrl,
     name,
@@ -40,42 +39,47 @@ const CatProfile = ({ postData }) => {
   } = postData;
 
   return (
-    <S.CatProfile>
-      <PawsLogo className="CatProfile__PawsLogo"></PawsLogo>
+    <S.Profile>
+      <PawsLogo className="Profile__PawsLogo"></PawsLogo>
 
-      <main className="CatProfile__main">
-        <section className="CatProfile__left-areaWrapper">
-          <div className="CatProfile__left-area">
+      <main className="Profile__main">
+        <section className="Profile__left-areaWrapper">
+          <div className="Profile__left-area">
             <Link href="/adoptable-cats">
-              <BackButton className="CatProfile__BackButton"></BackButton>
+              <a>
+                <BackButton
+                  as="div"
+                  className="Profile__BackButton"
+                ></BackButton>
+              </a>
             </Link>
 
-            <div className="CatProfile__profilePicture-wrapper">
+            <div className="Profile__profilePicture-wrapper">
               <img
                 src={profileImageUrl}
                 alt={name}
-                className="CatProfle__profilePicture"
+                className="Profile__profilePicture"
               />
             </div>
           </div>
         </section>
 
-        <article className="CatProfile__right-area">
-          <div className="CatProfile__detail-block">
-            <h1 className="CatProfile__heading">
-              <span className="CatProfile__headingAdopt">Adopt</span>
+        <article className="Profile__right-area">
+          <div className="Profile__detail-block">
+            <h1 className="Profile__heading">
+              <span className="Profile__headingAdopt">Adopt</span>
               <br />
-              <span className="CatProfile__headingName">{name}</span>
+              <span className="Profile__headingName">{name}</span>
             </h1>
 
-            <div className="CatProfile__detail-wrapper">
+            <div className="Profile__detail-wrapper">
               <GenderIndicator
                 gender={gender}
-                className="CatProfile__GenderIndicator"
+                className="Profile__GenderIndicator"
                 withLabel
               ></GenderIndicator>
 
-              <span className="CatProfile__age">
+              <span className="Profile__age">
                 Approx.{" "}
                 <strong>
                   {age} year{age > 1 && "s"} old
@@ -88,7 +92,7 @@ const CatProfile = ({ postData }) => {
               </span>
             </div>
 
-            <ul className="CatProfile__RatingBlock-group">
+            <ul className="Profile__RatingBlock-group">
               {ratings.map((rating, i) => (
                 <RatingBlock as="li" data={rating} key={i}></RatingBlock>
               ))}
@@ -98,12 +102,12 @@ const CatProfile = ({ postData }) => {
           <ProfileStory data={contentHtml}></ProfileStory>
 
           {galleryImageUrls.length > 0 && (
-            <div className="CatProfile__gallery-group">
+            <div className="Profile__gallery-group">
               {galleryImageUrls.map((galleryImageUrl, i) => (
-                <div className="CatProfile__galleryImage-wrapper1" key={i}>
-                  <div className="CatProfile__galleryImage-wrapper2">
+                <div className="Profile__galleryImage-wrapper1" key={i}>
+                  <div className="Profile__galleryImage-wrapper2">
                     <img
-                      className="CatProfile__galleryImage"
+                      className="Profile__galleryImage"
                       src={galleryImageUrl}
                       alt={name}
                     />
@@ -113,7 +117,7 @@ const CatProfile = ({ postData }) => {
             </div>
           )}
 
-          <div className="CatProfile__cta-block">
+          <div className="Profile__cta-block">
             <h3>Interested in adopting {name}?</h3>
 
             <p>
@@ -123,11 +127,11 @@ const CatProfile = ({ postData }) => {
               get the process moving!
             </p>
 
-            <PillButton className="CatProfile__ctaAdoptButton">
+            <PillButton className="Profile__ctaAdoptButton">
               Adopt {name}
             </PillButton>
 
-            <h3 className="CatProfile__ctaSponsorHeading">
+            <h3 className="Profile__ctaSponsorHeading">
               Want to sponsor {name}?
             </h3>
 
@@ -138,17 +142,19 @@ const CatProfile = ({ postData }) => {
               small donations. Please keep supporting them!
             </p>
 
-            <PillButton className="CatProfile__ctaSponsorButton">
+            <PillButton className="Profile__ctaSponsorButton">
               Donate
             </PillButton>
           </div>
 
           <Link href="/adoptable-cats">
-            <TextButton as="a">See other adoptable cats</TextButton>
+            <a>
+              <TextButton as="div">See other adoptable cats</TextButton>
+            </a>
           </Link>
         </article>
       </main>
-    </S.CatProfile>
+    </S.Profile>
   );
 };
 
@@ -206,10 +212,10 @@ const ProfileStory = ({ data }) => {
 
 const S = {};
 
-S.CatProfile = styled.div`
+S.Profile = styled.div`
   position: relative;
 
-  .CatProfile__PawsLogo {
+  .Profile__PawsLogo {
     position: fixed;
     top: ${(p) => p.theme.size[32]};
     left: ${(p) => p.theme.size[48]};
@@ -226,7 +232,7 @@ S.CatProfile = styled.div`
     }
   }
 
-  .CatProfile__main {
+  .Profile__main {
     margin-left: ${(p) => p.theme.size.pixel(384)};
     margin-right: ${(p) => p.theme.size.pixel(384)};
     padding-top: ${(p) => p.theme.size[96]};
@@ -253,7 +259,7 @@ S.CatProfile = styled.div`
     }
   }
 
-  .CatProfile__left-areaWrapper {
+  .Profile__left-areaWrapper {
     width: ${(p) => p.theme.size.pixel(384)};
     margin-left: ${(p) => p.theme.size.pixel(384)};
 
@@ -269,7 +275,7 @@ S.CatProfile = styled.div`
     }
   }
 
-  .CatProfile__left-area {
+  .Profile__left-area {
     position: fixed;
     left: ${(p) => p.theme.size.pixel(384)};
     width: ${(p) => p.theme.size.pixel(384)};
@@ -288,7 +294,7 @@ S.CatProfile = styled.div`
     }
   }
 
-  .CatProfile__BackButton {
+  .Profile__BackButton {
     position: absolute;
     left: -${(p) => p.theme.size[64]};
     top: -${(p) => p.theme.size[48]};
@@ -304,11 +310,11 @@ S.CatProfile = styled.div`
     }
   }
 
-  .CatProfile__right-area {
+  .Profile__right-area {
     padding-bottom: ${(p) => p.theme.size[96]};
   }
 
-  .CatProfile__profilePicture-wrapper {
+  .Profile__profilePicture-wrapper {
     width: ${(p) => p.theme.size.pixel(384)};
     height: ${(p) => p.theme.size.pixel(384)};
     border-radius: 1000px;
@@ -335,7 +341,7 @@ S.CatProfile = styled.div`
     }
   }
 
-  .CatProfle__profilePicture {
+  .Profile__profilePicture {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -344,7 +350,7 @@ S.CatProfile = styled.div`
     }
   }
 
-  .CatProfile__detail-block {
+  .Profile__detail-block {
     padding-bottom: ${(p) => p.theme.size[64]};
     border-bottom: 1px solid ${(p) => p.theme.color.grey[500]};
     margin-bottom: ${(p) => p.theme.size[48]};
@@ -355,7 +361,7 @@ S.CatProfile = styled.div`
     }
   }
 
-  .CatProfile__age {
+  .Profile__age {
     line-height: 150%;
 
     @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
@@ -363,16 +369,16 @@ S.CatProfile = styled.div`
     }
   }
 
-  .CatProfile__heading {
+  .Profile__heading {
     margin-bottom: ${(p) => p.theme.size[32]};
   }
 
-  .CatProfile__headingAdopt {
+  .Profile__headingAdopt {
     font-size: 2rem;
     color: ${(p) => p.theme.color.primary.main};
   }
 
-  .CatProfile__headingName {
+  .Profile__headingName {
     font-size: 6rem;
     line-height: 100%;
     font-family: ${(p) => p.theme.font.serif};
@@ -383,7 +389,7 @@ S.CatProfile = styled.div`
     }
   }
 
-  .CatProfile__GenderIndicator {
+  .Profile__GenderIndicator {
     margin-right: ${(p) => p.theme.size[32]};
 
     @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
@@ -391,7 +397,7 @@ S.CatProfile = styled.div`
     }
   }
 
-  .CatProfile__detail-wrapper {
+  .Profile__detail-wrapper {
     display: flex;
     align-items: center;
     margin-bottom: ${(p) => p.theme.size[32]};
@@ -402,13 +408,13 @@ S.CatProfile = styled.div`
     }
   }
 
-  .CatProfile__RatingBlock-group {
+  .Profile__RatingBlock-group {
     > *:not(:last-child) {
       margin-bottom: ${(p) => p.theme.size[24]};
     }
   }
 
-  .CatProfile__gallery-group {
+  .Profile__gallery-group {
     display: flex;
     flex-flow: row wrap;
     padding-bottom: ${(p) => p.theme.size[64]};
@@ -421,7 +427,7 @@ S.CatProfile = styled.div`
     }
   }
 
-  .CatProfile__galleryImage-wrapper1 {
+  .Profile__galleryImage-wrapper1 {
     width: 33%;
 
     @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
@@ -429,14 +435,14 @@ S.CatProfile = styled.div`
     }
   }
 
-  .CatProfile__galleryImage-wrapper2 {
+  .Profile__galleryImage-wrapper2 {
     width: 100%;
     padding-top: 100%;
     position: relative;
     border: 4px solid ${(p) => p.theme.color.white};
   }
 
-  .CatProfile__galleryImage {
+  .Profile__galleryImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -447,7 +453,7 @@ S.CatProfile = styled.div`
     right: 0;
   }
 
-  .CatProfile__cta-block {
+  .Profile__cta-block {
     padding-bottom: ${(p) => p.theme.size[64]};
     border-bottom: 1px solid ${(p) => p.theme.color.grey[500]};
     margin-bottom: ${(p) => p.theme.size[48]};
@@ -482,7 +488,7 @@ S.CatProfile = styled.div`
       }
     }
 
-    .CatProfile__ctaAdoptButton {
+    .Profile__ctaAdoptButton {
       margin-bottom: ${(p) => p.theme.size[64]};
 
       @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
@@ -490,15 +496,15 @@ S.CatProfile = styled.div`
       }
     }
 
-    .CatProfile__ctaSponsorHeading {
+    .Profile__ctaSponsorHeading {
       color: ${(p) => p.theme.color.secondary.main};
     }
 
-    .CatProfile__ctaSponsorButton {
+    .Profile__ctaSponsorButton {
       background-color: ${(p) => p.theme.color.secondary.main};
       border: 2px solid ${(p) => p.theme.color.secondary.main};
     }
   }
 `;
 
-export default CatProfile;
+export default Profile;

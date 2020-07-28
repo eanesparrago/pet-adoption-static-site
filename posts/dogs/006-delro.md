@@ -15,7 +15,14 @@ ratings: [
     { label: "Likes other animals", value: 8 },
   ]
 profileImageUrl: "/static/images/dogs/006-delro/profile.jpg"
-galleryImageUrls: [""]
+galleryImageUrls: [
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+  ]
 ---
 
 ## Delro’s Story

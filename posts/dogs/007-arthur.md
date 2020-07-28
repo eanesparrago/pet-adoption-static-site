@@ -15,7 +15,14 @@ ratings: [
     { label: "Likes other animals", value: 7 },
   ]
 profileImageUrl: "/static/images/dogs/007-arthur/profile.jpg"
-galleryImageUrls: [""]
+galleryImageUrls: [
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+  ]
 ---
 
 ## Arthur’s Story

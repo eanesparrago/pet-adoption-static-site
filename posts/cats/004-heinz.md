@@ -13,7 +13,14 @@ ratings: [
     { label: "Likes other animals", value: 8 },
   ]
 profileImageUrl: "/static/images/cats/004-heinz/profile.jpg"
-galleryImageUrls: []
+galleryImageUrls: [
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+    "/static/images/placeholder-image.png",
+  ]
 ---
 
 ## Heinz’s Story
