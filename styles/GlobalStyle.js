@@ -14,6 +14,7 @@ export default createGlobalStyle`
     font-size: 19px;
     font-family: ${theme.font.sansSerif};
     overflow-y: scroll;
+    color: ${(p) => p.theme.color.grey[800]}
   }
 
   a:focus, button:focus {

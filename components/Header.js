@@ -2,6 +2,36 @@ import styled, { css } from "styled-components";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+import PawsLogo from "./elements/PawsLogo";
+
+const Header = () => {
+  const router = useRouter();
+
+  return (
+    <S.Header>
+      <PawsLogo></PawsLogo>
+
+      <S.Nav>
+        <Link href="/" passHref={true}>
+          <S.Anchor isActive={router.pathname === "/"}>Home</S.Anchor>
+        </Link>
+
+        <Link href="/adoptable-cats" passHref={true}>
+          <S.Anchor isActive={router.pathname === "/adoptable-cats"}>
+            Adoptable Cats
+          </S.Anchor>
+        </Link>
+
+        <Link href="/adoptable-dogs" passHref={true}>
+          <S.Anchor isActive={router.pathname === "/adoptable-dogs"}>
+            Adoptable Dogs
+          </S.Anchor>
+        </Link>
+      </S.Nav>
+    </S.Header>
+  );
+};
+
 const S = {};
 
 S.Header = styled.header`
@@ -16,14 +46,6 @@ S.Header = styled.header`
     border-bottom: 1px solid ${(p) => p.theme.color.grey[500]};
     margin-bottom: ${(p) => p.theme.size[64]};
     padding-bottom: ${(p) => p.theme.size[48]};
-  }
-`;
-
-S.Logo = styled.img`
-  width: ${(p) => p.theme.size.pixel(128)};
-
-  @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
-    margin-bottom: ${(p) => p.theme.size[32]};
   }
 `;
 
@@ -60,33 +82,5 @@ S.Anchor = styled.a`
       font-weight: 700;
     `}
 `;
-
-const Header = () => {
-  const router = useRouter();
-
-  return (
-    <S.Header>
-      <S.Logo src="/static/images/paws_logo.jpg" alt="PAWS logo" />
-
-      <S.Nav>
-        <Link href="/" passHref={true}>
-          <S.Anchor isActive={router.pathname === "/"}>Home</S.Anchor>
-        </Link>
-
-        <Link href="/adoptable-cats" passHref={true}>
-          <S.Anchor isActive={router.pathname === "/adoptable-cats"}>
-            Adoptable Cats
-          </S.Anchor>
-        </Link>
-
-        <Link href="/adoptable-dogs" passHref={true}>
-          <S.Anchor isActive={router.pathname === "/adoptable-dogs"}>
-            Adoptable Dogs
-          </S.Anchor>
-        </Link>
-      </S.Nav>
-    </S.Header>
-  );
-};
 
 export default Header;

@@ -1,4 +1,8 @@
 import styled from "styled-components";
+
+import PawsLogo from "components/elements/PawsLogo";
+import GenderIndicator from "components/elements/GenderIndicator";
+import RatingBlock from "components/compounds/RatingBlock";
 import { getAllPostIds, getPostData } from "lib/posts";
 
 export async function getStaticPaths() {
@@ -21,11 +25,117 @@ export async function getStaticProps({ params }) {
 const CatProfile = ({ postData }) => {
   console.log(postData);
 
-  return <S.CatProfile>Cat</S.CatProfile>;
+  return (
+    <S.CatProfile>
+      <PawsLogo className="CatProfile__PawsLogo"></PawsLogo>
+
+      <main className="CatProfile__main">
+        <section className="CatProfile__left-area">
+          <div className="CatProfile__profilePicture-wrapper">
+            <img
+              src="/static/images/cats/001-stevey/profile.jpg"
+              alt=""
+              className="CatProfle__profilePicture"
+            />
+          </div>
+        </section>
+
+        <article className="CatProfile__right-area">
+          <h1 className="CatProfile__heading">
+            <span className="CatProfile__headingAdopt">Adopt</span>
+            <br />
+            <span className="CatProfile__headingName">Stevey</span>
+          </h1>
+
+          <div className="CatProfile__detail-wrapper">
+            <GenderIndicator
+              className="CatProfile__GenderIndicator"
+              withLabel
+            ></GenderIndicator>
+
+            <span>
+              Approx. <strong>5 years old</strong> (Shelter resident for{" "}
+              <strong>4 years</strong>)
+            </span>
+          </div>
+
+          <ul className="CatProfile__RatingBlock-group">
+            <RatingBlock as="li" label="Affectionate"></RatingBlock>
+            <RatingBlock as="li" label="Playful"></RatingBlock>
+            <RatingBlock as="li" label="Likes other animals"></RatingBlock>
+          </ul>
+        </article>
+      </main>
+    </S.CatProfile>
+  );
 };
 
 const S = {};
 
-S.CatProfile = styled.div``;
+S.CatProfile = styled.div`
+  position: relative;
+
+  .CatProfile__PawsLogo {
+    position: absolute;
+    top: ${(p) => p.theme.size[32]};
+    left: ${(p) => p.theme.size[48]};
+  }
+
+  .CatProfile__main {
+    margin-left: ${(p) => p.theme.size.pixel(384)};
+    margin-right: ${(p) => p.theme.size.pixel(384)};
+    padding-top: ${(p) => p.theme.size[96]};
+    display: flex;
+  }
+
+  .CatProfile__left-area {
+    margin-right: ${(p) => p.theme.size[64]};
+  }
+
+  .CatProfile__profilePicture-wrapper {
+    height: ${(p) => p.theme.size.pixel(384)};
+    width: ${(p) => p.theme.size.pixel(384)};
+    border-radius: 1000px;
+    overflow: hidden;
+  }
+
+  .CatProfle__profilePicture {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .CatProfile__heading {
+    margin-bottom: ${(p) => p.theme.size[32]};
+  }
+
+  .CatProfile__headingAdopt {
+    font-size: 2rem;
+    color: ${(p) => p.theme.color.primary.main};
+  }
+
+  .CatProfile__headingName {
+    font-size: 6rem;
+    line-height: 100%;
+    font-family: ${(p) => p.theme.font.serif};
+    color: ${(p) => p.theme.color.primary.dark};
+  }
+
+  .CatProfile__GenderIndicator {
+    margin-right: ${(p) => p.theme.size[32]};
+  }
+
+  .CatProfile__detail-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: ${(p) => p.theme.size[32]};
+  }
+
+  .CatProfile__RatingBlock-group {
+    > *:not(:last-child) {
+      margin-bottom: ${(p) => p.theme.size[24]};
+    }
+  }
+`;
 
 export default CatProfile;

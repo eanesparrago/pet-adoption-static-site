@@ -1,42 +1,9 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const StyledGenderIndicator = styled.figure`
-  width: ${(p) => p.theme.size[48]};
-  height: ${(p) => p.theme.size[48]};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${(p) => p.theme.color.white};
-  border-radius: 1000px;
-
-  ${(p) =>
-    (p.gender === "male" &&
-      css`
-        border: 2px solid ${(p) => p.theme.color.blue};
-      `) ||
-    (p.gender === "female" &&
-      css`
-        border: 2px solid ${(p) => p.theme.color.pink};
-      `)}
-
-  .GenderIndicator__svg {
-    width: ${(p) => p.theme.size[24]};
-    height: ${(p) => p.theme.size[24]};
-  }
-
-  .GenderIndicator__svg--male {
-    fill: ${(p) => p.theme.color.blue};
-  }
-
-  .GenderIndicator__svg--female {
-    fill: ${(p) => p.theme.color.pink};
-  }
-`;
-
-const GenderIndicator = ({ gender = "male", ...rest }) => {
+const GenderIndicator = ({ gender = "male", withLabel = false, ...rest }) => {
   return (
-    <StyledGenderIndicator gender={gender} {...rest}>
+    <S.GenderIndicator gender={gender} withLabel={withLabel} {...rest}>
       {(gender === "male" && (
         <svg
           className="GenderIndicator__svg GenderIndicator__svg--male"
@@ -61,8 +28,63 @@ const GenderIndicator = ({ gender = "male", ...rest }) => {
             <path d="M18 9.19556C18 4.22681 13.9688 0.195557 9 0.195557C4.03125 0.195557 0 4.22681 0 9.19556C0 13.4768 2.99375 17.0643 7 17.9706V21.1956H4.75C4.3375 21.1956 4 21.5331 4 21.9456V24.4456C4 24.8581 4.3375 25.1956 4.75 25.1956H7V27.4456C7 27.8581 7.3375 28.1956 7.75 28.1956H10.25C10.6625 28.1956 11 27.8581 11 27.4456V25.1956H13.25C13.6625 25.1956 14 24.8581 14 24.4456V21.9456C14 21.5331 13.6625 21.1956 13.25 21.1956H11V17.9706C15.0062 17.0643 18 13.4768 18 9.19556V9.19556ZM4 9.19556C4 6.43931 6.24375 4.19556 9 4.19556C11.7562 4.19556 14 6.43931 14 9.19556C14 11.9518 11.7562 14.1956 9 14.1956C6.24375 14.1956 4 11.9518 4 9.19556Z" />
           </svg>
         ))}
-    </StyledGenderIndicator>
+
+      {withLabel && <span className="GenderIndicator__label">Male</span>}
+    </S.GenderIndicator>
   );
 };
+
+const S = {};
+
+S.GenderIndicator = styled.div`
+  width: ${(p) => p.theme.size[48]};
+  height: ${(p) => p.theme.size[48]};
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(p) => p.theme.color.white};
+  border-radius: 1000px;
+
+  ${(p) =>
+    (p.gender === "male" &&
+      css`
+        border: 2px solid ${(p) => p.theme.color.blue};
+        color: ${(p) => p.theme.color.blue};
+      `) ||
+    (p.gender === "female" &&
+      css`
+        border: 2px solid ${(p) => p.theme.color.pink};
+        color: ${(p) => p.theme.color.pink};
+      `)}
+
+  .GenderIndicator__svg {
+    width: ${(p) => p.theme.size[24]};
+    height: ${(p) => p.theme.size[24]};
+  }
+
+  .GenderIndicator__svg--male {
+    fill: ${(p) => p.theme.color.blue};
+  }
+
+  .GenderIndicator__svg--female {
+    fill: ${(p) => p.theme.color.pink};
+  }
+
+  .GenderIndicator__label {
+    font-weight: 700;
+    font-size: 1.1875rem;
+  }
+
+  ${(p) =>
+    p.withLabel &&
+    css`
+      width: unset;
+      padding: 0 ${(p) => p.theme.size[24]};
+
+      .GenderIndicator__svg {
+        margin-right: ${(p) => p.theme.size[16]};
+      }
+    `}
+`;
 
 export default GenderIndicator;
