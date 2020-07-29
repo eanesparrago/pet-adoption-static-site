@@ -6,7 +6,7 @@ gender: "male"
 age: 2.5
 residencyYears: 2
 isSpecial: false
-date: '2020-07-27'
+date: '2020-07-21'
 ratings: [
     { label: "Affectionate", value: 8 },
     { label: "Playful", value: 8 },

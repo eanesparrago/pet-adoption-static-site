@@ -7,7 +7,7 @@ size: "average"
 age: 1
 residencyYears: 1
 isSpecial: false
-date: '2020-07-27'
+date: '2020-07-25'
 ratings: [
     { label: "Affectionate", value: 8 },
     { label: "Playful", value: 9 },
