@@ -1,6 +1,6 @@
 # Practice: PAWS Adoption
 
-Demo: <https://practice-202007-paw-adoption.vercel.app/adoptable-cats>
+Demo: <https://paw-adoption.vercel.app/adoptable-cats>
 
 ## Why
 
@@ -18,6 +18,7 @@ Demo: <https://practice-202007-paw-adoption.vercel.app/adoptable-cats>
 - Markdown — For posts
 - styled-components — Styling
 - react-spring — Animation
+- Vercel — Hosting
 
 ## Made By
 
