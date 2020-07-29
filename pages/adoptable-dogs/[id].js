@@ -193,7 +193,7 @@ const Profile = ({ postData }) => {
 
           <Link href="/adoptable-dogs">
             <a>
-              <TextButton as="div">See other adoptable cats</TextButton>
+              <TextButton as="div">See other adoptable dogs</TextButton>
             </a>
           </Link>
         </article>

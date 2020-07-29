@@ -1,9 +1,11 @@
 import { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import PillButton from "components/elements/PillButton";
 
-const StyledFilterCompound = styled.div`
+const S = {};
+
+S.FilterCompound = styled.div`
   > *:not(:last-child) {
     margin-right: ${(p) => p.theme.size[16]};
   }
@@ -11,6 +13,14 @@ const StyledFilterCompound = styled.div`
   > * {
     margin-bottom: ${(p) => p.theme.size[16]};
   }
+`;
+
+S.PillButton = styled(PillButton)`
+  ${(p) =>
+    p.isActive &&
+    css`
+      cursor: initial;
+    `}
 `;
 
 export const useFilterCompound = (options) => {
@@ -30,18 +40,19 @@ const FilterCompound = ({
   ...rest
 }) => {
   return (
-    <StyledFilterCompound {...rest}>
+    <S.FilterCompound {...rest}>
       {options.map((option) => (
-        <PillButton
+        <S.PillButton
+          isActive={activeFilter === option.key}
           type={activeFilter === option.key ? "primary" : "secondary"}
           key={option.key}
           name={option.key}
           onClick={handleFilterClick}
         >
           {option.text}
-        </PillButton>
+        </S.PillButton>
       ))}
-    </StyledFilterCompound>
+    </S.FilterCompound>
   );
 };
 
