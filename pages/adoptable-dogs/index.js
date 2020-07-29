@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Head from "next/head";
+import { useTrail, animated } from "react-spring";
 
 import Layout from "components/Layout";
 import FilterCompound, {
@@ -25,21 +26,28 @@ const filterOptions = [
   { key: "specialNeedsDogs", text: "Special Needs Dogs" },
 ];
 
+const filterDogs = (dogs, activeFilter) => {
+  switch (activeFilter) {
+    case filterOptions[0].key:
+      return dogs;
+    case filterOptions[1].key:
+      return dogs.filter((cat) => cat.gender === "female");
+    case filterOptions[2].key:
+      return dogs.filter((cat) => cat.gender === "male");
+    case filterOptions[3].key:
+      return dogs.filter((cat) => cat.isSpecial === true);
+  }
+};
+
 const AdoptableDogs = ({ dogs }) => {
   const [activeFilter, handleFilterClick] = useFilterCompound(filterOptions);
 
-  const filteredDogs = () => {
-    switch (activeFilter) {
-      case filterOptions[0].key:
-        return dogs;
-      case filterOptions[1].key:
-        return dogs.filter((dog) => dog.gender === "female");
-      case filterOptions[2].key:
-        return dogs.filter((dog) => dog.gender === "male");
-      case filterOptions[3].key:
-        return dogs.filter((dog) => dog.isSpecial === true);
-    }
-  };
+  const filteredDogs = filterDogs(dogs, activeFilter);
+
+  const trail = useTrail(filteredDogs.length, {
+    from: { transform: "translateY(1rem)", opacity: 0 },
+    to: { transform: "translateY(0)", opacity: 1 },
+  });
 
   return (
     <S.Layout>
@@ -64,16 +72,26 @@ const AdoptableDogs = ({ dogs }) => {
       ></S.FilterCompound>
 
       <S.AnimalCardGroup>
-        {filteredDogs().map((dog) => (
-          <Link
-            href="/adoptable-dogs/[slug]"
-            as={`/adoptable-dogs/${dog.id}`}
-            key={dog.id}
-          >
-            <a>
-              <AnimalCard key={dog.id} data={dog}></AnimalCard>
-            </a>
-          </Link>
+        {trail.map((props, i) => (
+          <animated.div style={props} key={filteredDogs[i].id}>
+            <Link
+              href="/adoptable-dogs/[slug]"
+              as={`/adoptable-dogs/${filteredDogs[i].id}`}
+            >
+              <a>
+                <span
+                  style={{
+                    position: "absolute",
+                    top: "-1000px",
+                    left: "-1000px",
+                  }}
+                >
+                  {filteredDogs[i].name}
+                </span>
+                <AnimalCard data={filteredDogs[i]}></AnimalCard>
+              </a>
+            </Link>
+          </animated.div>
         ))}
       </S.AnimalCardGroup>
     </S.Layout>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Head from "next/head";
+import { useTrail, animated } from "react-spring";
 
 import Layout from "components/Layout";
 import FilterCompound, {
@@ -25,21 +26,28 @@ const filterOptions = [
   { key: "specialNeedsCats", text: "Special Needs Cats" },
 ];
 
+const filterCats = (cats, activeFilter) => {
+  switch (activeFilter) {
+    case filterOptions[0].key:
+      return cats;
+    case filterOptions[1].key:
+      return cats.filter((cat) => cat.gender === "female");
+    case filterOptions[2].key:
+      return cats.filter((cat) => cat.gender === "male");
+    case filterOptions[3].key:
+      return cats.filter((cat) => cat.isSpecial === true);
+  }
+};
+
 const AdoptableCats = ({ cats }) => {
   const [activeFilter, handleFilterClick] = useFilterCompound(filterOptions);
 
-  const filteredCats = () => {
-    switch (activeFilter) {
-      case filterOptions[0].key:
-        return cats;
-      case filterOptions[1].key:
-        return cats.filter((cat) => cat.gender === "female");
-      case filterOptions[2].key:
-        return cats.filter((cat) => cat.gender === "male");
-      case filterOptions[3].key:
-        return cats.filter((cat) => cat.isSpecial === true);
-    }
-  };
+  const filteredCats = filterCats(cats, activeFilter);
+
+  const trail = useTrail(filteredCats.length, {
+    from: { transform: "translateY(1rem)", opacity: 0 },
+    to: { transform: "translateY(0)", opacity: 1 },
+  });
 
   return (
     <S.Layout>
@@ -64,25 +72,26 @@ const AdoptableCats = ({ cats }) => {
       ></S.FilterCompound>
 
       <S.AnimalCardGroup>
-        {filteredCats().map((cat) => (
-          <Link
-            href="/adoptable-cats/[slug]"
-            as={`/adoptable-cats/${cat.id}`}
-            key={cat.id}
-          >
-            <a>
-              <span
-                style={{
-                  position: "absolute",
-                  top: "-1000px",
-                  left: "-1000px",
-                }}
-              >
-                {cat.name}
-              </span>
-              <AnimalCard data={cat}></AnimalCard>
-            </a>
-          </Link>
+        {trail.map((props, i) => (
+          <animated.div style={props} key={filteredCats[i].id}>
+            <Link
+              href="/adoptable-cats/[slug]"
+              as={`/adoptable-cats/${filteredCats[i].id}`}
+            >
+              <a>
+                <span
+                  style={{
+                    position: "absolute",
+                    top: "-1000px",
+                    left: "-1000px",
+                  }}
+                >
+                  {filteredCats[i].name}
+                </span>
+                <AnimalCard data={filteredCats[i]}></AnimalCard>
+              </a>
+            </Link>
+          </animated.div>
         ))}
       </S.AnimalCardGroup>
     </S.Layout>
@@ -134,7 +143,7 @@ S.FilterCompound = styled(FilterCompound)`
   }
 `;
 
-S.AnimalCardGroup = styled.section`
+S.AnimalCardGroup = animated(styled.section`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -153,6 +162,6 @@ S.AnimalCardGroup = styled.section`
       margin-bottom: ${(p) => p.theme.size[32]};
     }
   }
-`;
+`);
 
 export default AdoptableCats;
