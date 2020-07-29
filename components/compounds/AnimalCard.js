@@ -51,6 +51,12 @@ S.AnimalCard = styled.article`
   position: relative;
   box-shadow: ${(p) => p.theme.shadow.big};
   cursor: pointer;
+  transition-duration: 300ms;
+
+
+  &:hover {
+    transform: translateY(-1rem);
+  }
 
   .AnimalCard__photo-wrapper {
     height: ${(p) => p.theme.size.pixel(192)};

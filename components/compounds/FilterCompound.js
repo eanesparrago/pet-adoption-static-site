@@ -16,10 +16,20 @@ S.FilterCompound = styled.div`
 `;
 
 S.PillButton = styled(PillButton)`
+  transition-duration: 300ms;
+
   ${(p) =>
     p.isActive &&
     css`
       cursor: initial;
+    `}
+
+  ${(p) =>
+    !p.isActive &&
+    css`
+      &:hover {
+        transform: translateY(-0.25rem);
+      }
     `}
 `;
 
