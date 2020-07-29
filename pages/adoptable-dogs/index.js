@@ -45,7 +45,7 @@ const AdoptableDogs = ({ dogs }) => {
   const filteredDogs = filterDogs(dogs, activeFilter);
 
   const trail = useTrail(filteredDogs.length, {
-    from: { transform: "translateY(1rem)", opacity: 0 },
+    from: { transform: "translateY(2rem)", opacity: 0 },
     to: { transform: "translateY(0)", opacity: 1 },
   });
 

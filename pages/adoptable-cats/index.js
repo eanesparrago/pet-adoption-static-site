@@ -45,7 +45,7 @@ const AdoptableCats = ({ cats }) => {
   const filteredCats = filterCats(cats, activeFilter);
 
   const trail = useTrail(filteredCats.length, {
-    from: { transform: "translateY(1rem)", opacity: 0 },
+    from: { transform: "translateY(2rem)", opacity: 0 },
     to: { transform: "translateY(0)", opacity: 1 },
   });
 
@@ -72,27 +72,31 @@ const AdoptableCats = ({ cats }) => {
       ></S.FilterCompound>
 
       <S.AnimalCardGroup>
-        {trail.map((props, i) => (
-          <animated.div style={props} key={filteredCats[i].id}>
-            <Link
-              href="/adoptable-cats/[slug]"
-              as={`/adoptable-cats/${filteredCats[i].id}`}
-            >
-              <a>
-                <span
-                  style={{
-                    position: "absolute",
-                    top: "-1000px",
-                    left: "-1000px",
-                  }}
-                >
-                  {filteredCats[i].name}
-                </span>
-                <AnimalCard data={filteredCats[i]}></AnimalCard>
-              </a>
-            </Link>
-          </animated.div>
-        ))}
+        {filteredCats.length > 0 ? (
+          trail.map((props, i) => (
+            <animated.div style={props} key={filteredCats[i].id}>
+              <Link
+                href="/adoptable-cats/[slug]"
+                as={`/adoptable-cats/${filteredCats[i].id}`}
+              >
+                <a>
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: "-1000px",
+                      left: "-1000px",
+                    }}
+                  >
+                    {filteredCats[i].name}
+                  </span>
+                  <AnimalCard data={filteredCats[i]}></AnimalCard>
+                </a>
+              </Link>
+            </animated.div>
+          ))
+        ) : (
+          <span className="empty">No cats here ("((^__^))")</span>
+        )}
       </S.AnimalCardGroup>
     </S.Layout>
   );
@@ -100,7 +104,12 @@ const AdoptableCats = ({ cats }) => {
 
 const S = {};
 
-S.Layout = styled(Layout)``;
+S.Layout = styled(Layout)`
+  .empty {
+    font-weight: 600;
+    color: ${(p) => p.theme.color.primary.main};
+  }
+`;
 
 S.HeadingBlock = styled.header`
   display: flex;
