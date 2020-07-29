@@ -75,7 +75,7 @@ const Profile = ({ postData }) => {
       <main className="Profile__main">
         <section className="Profile__left-areaWrapper">
           <div className="Profile__left-area">
-            <Link href="/adoptable-cats">
+            <Link href="/adoptable-cats" passHref={true}>
               <a>
                 <BackButton
                   as="div"

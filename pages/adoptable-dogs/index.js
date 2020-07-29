@@ -78,7 +78,7 @@ const AdoptableDogs = ({ dogs }) => {
               href="/adoptable-dogs/[id]"
               as={`/adoptable-dogs/${filteredDogs[i].id}`}
             >
-              <a>
+              <a style={{ display: "inline-block" }}>
                 <span
                   style={{
                     position: "absolute",

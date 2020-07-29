@@ -78,8 +78,9 @@ const AdoptableCats = ({ cats }) => {
               <Link
                 href="/adoptable-cats/[id]"
                 as={`/adoptable-cats/${filteredCats[i].id}`}
+                passHref={true}
               >
-                <a>
+                <a style={{ display: "inline-block" }}>
                   <span
                     style={{
                       position: "absolute",

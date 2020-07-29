@@ -138,7 +138,6 @@ S.Nav = styled.nav`
       width: 100%;
       text-align: center;
       margin: 0;
-      font-size: 1rem;
     }
 
     *:not(:last-child) {
