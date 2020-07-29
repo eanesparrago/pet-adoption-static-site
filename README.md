@@ -21,7 +21,7 @@ Demo: <https://practice-202007-paw-adoption.vercel.app/adoptable-cats>
 
 ## Made By
 
-Me
+Ian
 
 ## Dev
 
