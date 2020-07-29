@@ -142,6 +142,7 @@ S.Nav = styled.nav`
     }
 
     *:not(:last-child) {
+      margin-right: 0;
       margin-bottom: ${(p) => p.theme.size[16]};
     }
   }
