@@ -9,7 +9,8 @@ Demo: <https://practice-202007-paw-adoption.vercel.app/adoptable-cats>
 
 ## Inspiration
 
-PAWS website: <https://paws.org.ph/cats/>
+- PAWS website: <https://paws.org.ph/cats/>
+- Ikaw ayieeeeee
 
 ## Stuff Used
 
