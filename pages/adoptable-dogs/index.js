@@ -75,7 +75,7 @@ const AdoptableDogs = ({ dogs }) => {
         {trail.map((props, i) => (
           <animated.div style={props} key={filteredDogs[i].id}>
             <Link
-              href="/adoptable-dogs/[slug]"
+              href="/adoptable-dogs/[id]"
               as={`/adoptable-dogs/${filteredDogs[i].id}`}
             >
               <a>
