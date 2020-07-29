@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import Head from "next/head";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
-import Header from "components/Header";
 import Layout from "components/Layout";
 
 const S = {};
@@ -21,6 +22,12 @@ S.Home = styled(Layout)`
 `;
 
 export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.back();
+  }, []);
+  
   return (
     <S.Home>
       <Head>
@@ -30,7 +37,7 @@ export default function Home() {
       </Head>
 
       <div className="Home__wrapper">
-        <p className="Home__text">Home page :)</p>
+        <p className="Home__text">Peekaboo :)</p>
       </div>
     </S.Home>
   );

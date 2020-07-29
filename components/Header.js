@@ -12,9 +12,9 @@ const Header = () => {
       <PawsLogo></PawsLogo>
 
       <S.Nav>
-        <Link href="/" passHref={true}>
+        {/* <Link href="/" passHref={true}>
           <S.Anchor isActive={router.pathname === "/"}>Home</S.Anchor>
-        </Link>
+        </Link> */}
 
         <Link href="/adoptable-cats" passHref={true}>
           <S.Anchor isActive={router.pathname === "/adoptable-cats"}>
