@@ -39,12 +39,13 @@ export default class MyDocument extends Document {
             content="width=device-width, initial-scale=1.0"
           />
 
-          <link rel="stylesheet" href="/static/css/destyle.css" />
-
           <link
+            rel="preload"
             href="https://fonts.googleapis.com/css2?family=Faustina&family=Open+Sans:wght@300;400;600;700&display=swap"
             rel="stylesheet"
           ></link>
+
+          <link rel="stylesheet" href="/static/css/destyle.css" />
 
           <link
             rel="apple-touch-icon"
