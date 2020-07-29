@@ -1,6 +1,9 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import Head from "next/head";
+import { useSpring, animated } from "react-spring";
+import { Waypoint } from "react-waypoint";
 
 import PawsLogo from "components/elements/PawsLogo";
 import BackButton from "components/elements/BackButton";
@@ -39,6 +42,26 @@ const Profile = ({ postData }) => {
     galleryImageUrls,
   } = postData;
 
+  const profilePictureSpring = useSpring({
+    from: { transform: "translateY(2rem)", opacity: 0 },
+    to: { transform: "translateY(0)", opacity: 1 },
+  });
+
+  const [isScrolledDown, setIsScrolledDown] = useState(false);
+
+  const sideHeadingSpring = useSpring({
+    transform: isScrolledDown ? "translateX(0)" : "translateX(-2rem)",
+    opacity: isScrolledDown ? 1 : 0,
+  });
+
+  const handleAtfLeave = () => {
+    setIsScrolledDown(true);
+  };
+
+  const handleAtfEnter = () => {
+    setIsScrolledDown(false);
+  };
+
   return (
     <S.Profile>
       <Head>
@@ -61,23 +84,37 @@ const Profile = ({ postData }) => {
               </a>
             </Link>
 
-            <div className="Profile__profilePicture-wrapper">
+            <animated.div
+              style={profilePictureSpring}
+              className="Profile__profilePicture-wrapper"
+            >
               <img
                 src={profileImageUrl}
                 alt={name}
                 className="Profile__profilePicture"
               />
-            </div>
+            </animated.div>
+
+            <animated.h1
+              style={sideHeadingSpring}
+              className="Profile__heading Profile__heading--side"
+            >
+              <span className="Profile__headingAdopt">Adopt</span>
+              <br />
+              <span className="Profile__headingName">{name}</span>
+            </animated.h1>
           </div>
         </section>
 
         <article className="Profile__right-area">
           <div className="Profile__detail-block">
-            <h1 className="Profile__heading">
-              <span className="Profile__headingAdopt">Adopt</span>
-              <br />
-              <span className="Profile__headingName">{name}</span>
-            </h1>
+            <Waypoint onEnter={handleAtfEnter} onLeave={handleAtfLeave}>
+              <h1 className="Profile__heading">
+                <span className="Profile__headingAdopt">Adopt</span>
+                <br />
+                <span className="Profile__headingName">{name}</span>
+              </h1>
+            </Waypoint>
 
             <div className="Profile__detail-wrapper">
               <GenderIndicator
@@ -326,6 +363,7 @@ S.Profile = styled.div`
     height: ${(p) => p.theme.size.pixel(384)};
     border-radius: 1000px;
     overflow: hidden;
+    margin-bottom: ${(p) => p.theme.size[8]};
 
     @media (max-width: ${(p) => p.theme.breakpoint.desktopXL}) {
       width: ${(p) => p.theme.size.pixel(384)};
@@ -340,6 +378,7 @@ S.Profile = styled.div`
     @media (max-width: ${(p) => p.theme.breakpoint.desktopM}) {
       width: ${(p) => p.theme.size.pixel(384)};
       height: ${(p) => p.theme.size.pixel(384)};
+      margin-bottom: 0;
     }
 
     @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
@@ -378,6 +417,18 @@ S.Profile = styled.div`
 
   .Profile__heading {
     margin-bottom: ${(p) => p.theme.size[32]};
+  }
+
+  .Profile__heading--side {
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopM}) {
+      display: none;
+    }
+
+    .Profile__headingName {
+      @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
+        font-size: 4rem;
+      }
+    }
   }
 
   .Profile__headingAdopt {

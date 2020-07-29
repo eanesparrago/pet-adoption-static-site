@@ -25,7 +25,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.back();
+    router.push("/adoptable-cats");
   }, []);
   
   return (

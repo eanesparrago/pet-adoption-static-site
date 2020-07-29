@@ -14,6 +14,7 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-spring": "^8.0.27",
+    "react-waypoint": "^9.0.3",
     "remark": "^12.0.1",
     "remark-html": "^12.0.0",
     "styled-components": "^5.0.0"
