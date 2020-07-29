@@ -152,6 +152,11 @@ S.Anchor = styled.a`
   color: ${(p) => p.theme.color.primary.main};
   font-weight: 600;
   cursor: pointer;
+  display: inline-block;
+  height: ${(p) => p.theme.size[48]};
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
   ${(p) =>
     p.isActive &&
