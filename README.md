@@ -1,4 +1,4 @@
-# Practice: PAWS Adoption
+# Practice: PAW Adoption
 
 Demo: <https://practice-202007-paw-adoption.vercel.app/adoptable-cats>
 

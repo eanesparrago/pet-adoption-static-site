@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <S.Home>
       <Head>
-        <title>Home | PAWS</title>
+        <title>Home | PAW Adoption</title>
 
         <meta name="description" content="PAWS cat and dog adoption website" />
       </Head>

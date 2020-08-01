@@ -65,7 +65,7 @@ const Profile = ({ postData }) => {
   return (
     <S.Profile>
       <Head>
-        <title>{name} | Adoptable Cats | PAWS</title>
+        <title>{name} | Adoptable Cats | PAW Adoption</title>
 
         <meta name="description" content={`Adopt ${name}`} />
       </Head>

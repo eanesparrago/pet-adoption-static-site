@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const PawsLogo = (props) => {
   return (
-    <S.PawsLogo src="/static/images/paws_logo.jpg" alt="PAWS logo" {...props} />
+    <S.PawsLogo src="/static/images/paws_logo.png" alt="PAW logo" {...props} />
   );
 };
 

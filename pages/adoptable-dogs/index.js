@@ -52,9 +52,9 @@ const AdoptableDogs = ({ dogs }) => {
   return (
     <S.Layout>
       <Head>
-        <title>Adoptable Dogs | PAWS</title>
+        <title>Adoptable Dogs | PAW Adoption</title>
 
-        <meta name="description" content="PAWS adoptable dogs" />
+        <meta name="description" content="PAW adoptable dogs" />
       </Head>
 
       <S.HeadingBlock>

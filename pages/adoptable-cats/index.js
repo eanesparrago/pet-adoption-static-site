@@ -52,9 +52,9 @@ const AdoptableCats = ({ cats }) => {
   return (
     <S.Layout>
       <Head>
-        <title>Adoptable Cats | PAWS</title>
+        <title>Adoptable Cats | PAW Adoption</title>
 
-        <meta name="description" content="PAWS adoptable cats" />
+        <meta name="description" content="PAW adoptable cats" />
       </Head>
 
       <S.HeadingBlock>
