@@ -1,4 +1,4 @@
-# Practice: PAW Adoption
+# Mini Project: Pet Adoption
 
 Demo: <https://paw-adoption.vercel.app/adoptable-cats>
 
@@ -10,9 +10,8 @@ Demo: <https://paw-adoption.vercel.app/adoptable-cats>
 ## Inspiration
 
 - PAWS website: <https://paws.org.ph/cats/>
-- Ikaw ayieeeeee
 
-## Stuff Used
+## Tools Used
 
 - Next.js — React framework
 - Markdown — For posts
@@ -22,7 +21,7 @@ Demo: <https://paw-adoption.vercel.app/adoptable-cats>
 
 ## Made By
 
-Ian
+Ean
 
 ## Dev
 
